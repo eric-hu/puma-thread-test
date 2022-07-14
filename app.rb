@@ -5,11 +5,7 @@ class App < Sinatra::Base
     Thread.current[:calls] ||= 0
     Thread.current[:calls] +=1
 
-    request_id = Thread.current[:calls]
-
-    Thread.current[request_id.to_s] = 'foo'
-
-    puts Thread.current.keys
+    puts "Current number of calls received: #{Thread.current[:calls]}"
     puts "-----"
 
     'Hello world!'
